@@ -240,56 +240,52 @@ orderAlphabetically('webmaster');
 orderAlphabetically('textbook');
 orderAlphabetically('abc123xyz');
 
-/**
- * Checks if a given string contains a specified substring.
- *
- * @param {string} str - The input string to search within.
- * @param {string} substring - The substring to check for in the input string.
- * @returns {boolean} - True if the input string contains the specified substring, false otherwise.
- *
- * @example
- *   containsSubstring('Hello, World!', 'World') => true
- *   containsSubstring('JavaScript is Fun', 'Python') => false
- *   containsSubstring('12345', '34') => true
- */
-function containsSubstring(/* str, substring */) {
-  throw new Error('Not implemented');
+// Checks if a given string contains a specified substring.
+
+function containsSubstring(str, substring) {
+  return str.includes(substring);
 }
+containsSubstring('Hello, World!', 'World');
+containsSubstring('JavaScript is Fun', 'Python');
+containsSubstring('12345', '34');
 
 /**
  * Returns the number of vowels in the string.
  * Vowels: 'a', 'e', 'i', 'o', 'u', 'y', 'A', 'E', 'I', 'O', 'U', 'Y'.
- *
- * @param {string} str - The input string.
- * @return {number} - The number of vowels in the string.
- *
- * @example:
- *   countVowels('apple')  => 2
- *   countVowels('banana') => 3
- *   countVowels('cherry') => 2
- *   countVowels('aEiOu') => 5
- *   countVowels('XYZ') => 1
  */
-function countVowels(/* str */) {
-  throw new Error('Not implemented');
+function countVowels(str) {
+  const volves = ['a', 'e', 'i', 'o', 'u', 'y', 'A', 'E', 'I', 'O', 'U', 'Y'];
+  let sum = 0;
+  // let char;
+  for (let i = 0; i < str.length; i += 1) {
+    if (volves.includes(str[i])) {
+      sum += 1;
+    }
+  }
+  return sum;
 }
+countVowels('');
+countVowels('apple');
+countVowels('banana');
+countVowels('cherry');
+countVowels('aEiOu');
+countVowels('XYZ');
 
 /**
  * Returns true if the string is a palindrome; otherwise false.
  * https://en.wikipedia.org/wiki/Palindrome
- *
- * @param {string} str - The input string.
- * @return {bool} - True if the string is a palindrome, false otherwise.
- *
- * @example:
- *   isPalindrome('madam') => true
- *   isPalindrome('racecar') => true
- *   isPalindrome('apple') => false
- *   isPalindrome('No lemon, no melon') => true
  */
-function isPalindrome(/* str */) {
-  throw new Error('Not implemented');
+function isPalindrome(str) {
+  let a;
+  const b = str.toLowerCase().replace(/[\W_]/g, '');
+  if (b === b.split('').reverse().join('')) a = true;
+  else a = false;
+  return a;
 }
+isPalindrome('madam');
+isPalindrome('racecar');
+isPalindrome('apple');
+isPalindrome('No lemon, no melon');
 
 /**
  * Find the longest word in the sentence. If there are multiple longest words,
@@ -323,18 +319,21 @@ function reverseWords(/* str */) {
 
 /**
  * Inverts the case of each character in the given string.
- *
- * @param {string} str - The input string.
- * @returns {string} - The string with the case of each character inverted.
- *
- * @example
- *   invertCase('Hello, World!') =>  'hELLO, wORLD!'
- *   invertCase('JavaScript is Fun') => 'jAVAsCRIPT IS fUN'
- *   invertCase('12345') => '12345'
  */
-function invertCase(/* str */) {
-  throw new Error('Not implemented');
+function invertCase(str) {
+  let newStr = '';
+  let upper;
+  for (let i = 0; i < str.length; i += 1) {
+    upper = str[i].toUpperCase();
+    if (str[i] === upper) newStr += str[i].toLowerCase();
+    else newStr += upper;
+  }
+  return newStr;
+  // throw new Error('Not implemented');
 }
+invertCase('Hello, World!');
+invertCase('JavaScript is Fun');
+invertCase('12345');
 
 /**
  * Returns the result of string template and given parameters firstName and lastName.
