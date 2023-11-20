@@ -5,23 +5,20 @@
  *                                                                                           *
  ******************************************************************************************* */
 
-/**
- * Returns the length of the given string.
- *
- * @param {string} value - The input string to calculate the length of.
- * @return {number} - The length of the string.
- *
- * @example
- *   getStringLength('aaaaa') => 5
- *   getStringLength('b') => 1
- *   getStringLength('') => 0
- *   getStringLength() => 0
- *   getStringLength(null) => 0
- *   getStringLength(undefined) => 0
- */
-function getStringLength(/* value */) {
-  throw new Error('Not implemented');
+// Returns the length of the given string.
+
+function getStringLength(value) {
+  let a;
+  if (typeof value === 'string') a = value.length;
+  else a = 0;
+  return a;
 }
+getStringLength('aaaaa');
+getStringLength('b');
+getStringLength('');
+getStringLength();
+getStringLength(null);
+getStringLength(undefined);
 
 /**
  * Returns true if the value is a string, otherwise returns false.
@@ -38,84 +35,74 @@ function getStringLength(/* value */) {
  *   isString(new String('test')) => true
  */
 function isString(/* value */) {
+  // let a;
+  // // if (
+  // //   typeof value === 'undefined' ||
+  // //   typeof value === 'number' ||
+  // //   typeof {} === 'object' ||
+  // //   typeof [] === 'object' ||
+  // //   value === null ||
+  // //   typeof value === 'boolean' ||
+  // //   typeof value === 'symbol'
+  // // )
+  // //   a = false;
+  // if (typeof value === 'string' && typeof new Date() === 'object') a = true;
+  // else a = false;
+  // return a;
   throw new Error('Not implemented');
 }
+// isString('test');
+// isString();
+// isString(null);
+// isString([]);
+// isString({});
+// isString(true);
+// isString(false);
 
-/**
- * Returns the result of concatenation of two strings.
- *
- * @param {string} value1 - The first string to concatenate.
- * @param {string} value2 - The second string to concatenate.
- * @return {string} - The concatenated string.
- *
- * @example
- *   concatenateStrings('aa', 'bb') => 'aabb'
- *   concatenateStrings('aa', '') => 'aa'.
- *   concatenateStrings('', 'bb') => 'bb'
- */
-function concatenateStrings(/* value1, value2 */) {
-  throw new Error('Not implemented');
-}
+// Returns the result of concatenation of two strings.
 
-/**
- * Returns the first character of the given string.
- *
- * @param {string} value - The input string to extract the first character from.
- * @return {string} - The first character of the string.
- *
- * @example
- *   getFirstChar('John Doe') => 'J'
- *   getFirstChar('cat') => 'c'
- *   getFirstChar('') => ''
- */
-function getFirstChar(/* value */) {
-  throw new Error('Not implemented');
+function concatenateStrings(value1, value2) {
+  return value1.concat(value2);
 }
+concatenateStrings('aa', 'bb');
+concatenateStrings('aa', '');
+concatenateStrings('', 'bb');
 
-/**
- * Removes leading and trailing whitespace characters from the string.
- *
- * @param {string} value - The input string to remove leading and trailing whitespaces from.
- * @return {string} - The string with leading and trailing whitespaces removed.
- *
- * @example
- *   removeLeadingAndTrailingWhitespaces('  Abracadabra') => 'Abracadabra'
- *   removeLeadingAndTrailingWhitespaces('cat ') => 'cat'
- *   removeLeadingAndTrailingWhitespaces('\t\t\tHello, World! ') => 'Hello, World!'
- */
-function removeLeadingAndTrailingWhitespaces(/* value */) {
-  throw new Error('Not implemented');
-}
+// Returns the first character of the given string.
 
-/**
- * Removes only leading whitespace characters from the string.
- *
- * @param {string} value - The input string to remove leading whitespaces from.
- * @return {string} - The string with leading whitespaces removed.
- *
- * @example
- *   removeLeadingWhitespaces('  Abracadabra') => 'Abracadabra'
- *   removeLeadingWhitespaces('cat ') => 'cat '
- *   removeLeadingWhitespaces('\t\t\tHello, World! ') => 'Hello, World! '
- */
-function removeLeadingWhitespaces(/* value */) {
-  throw new Error('Not implemented');
+function getFirstChar(value) {
+  return value.charAt(0);
 }
+getFirstChar('John Doe');
+getFirstChar('cat');
+getFirstChar('');
 
-/**
- * Removes only trailing whitespace characters from the string.
- *
- * @param {string} value - The input string to remove trailing whitespaces from.
- * @return {string} - The string with trailing whitespaces removed.
- *
- * @example
- *   removeTrailingWhitespaces('  Abracadabra') => '  Abracadabra'
- *   removeTrailingWhitespaces('cat ') => 'cat'
- *   removeTrailingWhitespaces('\t\t\tHello, World! ') => '\t\t\tHello, World!'
- */
-function removeTrailingWhitespaces(/* value */) {
-  throw new Error('Not implemented');
+// Removes leading and trailing whitespace characters from the string.
+
+function removeLeadingAndTrailingWhitespaces(value) {
+  return value.trim();
 }
+removeLeadingAndTrailingWhitespaces('  Abracadabra');
+removeLeadingAndTrailingWhitespaces('cat ');
+removeLeadingAndTrailingWhitespaces('\t\t\tHello, World! ');
+
+// Removes only leading whitespace characters from the string.
+
+function removeLeadingWhitespaces(value) {
+  return value.trimStart();
+}
+removeLeadingWhitespaces('  Abracadabra');
+removeLeadingWhitespaces('cat ');
+removeLeadingWhitespaces('\t\t\tHello, World! ');
+
+// Removes only trailing whitespace characters from the string.
+
+function removeTrailingWhitespaces(value) {
+  return value.trimEnd();
+}
+removeTrailingWhitespaces('  Abracadabra');
+removeTrailingWhitespaces('cat ');
+removeTrailingWhitespaces('\t\t\tHello, World! ');
 
 /**
  * Returns a string that is repeated the specified number of times.
@@ -130,9 +117,16 @@ function removeTrailingWhitespaces(/* value */) {
  *   repeatString('', 3) => ''
  *   repeatString('abc', -2) => ''
  */
-function repeatString(/* str, times */) {
-  throw new Error('Not implemented');
+function repeatString(str, times) {
+  let a;
+  if (times < 0) a = '';
+  else a = str.repeat(times);
+  return a;
 }
+repeatString('A', 5);
+repeatString('cat', 3);
+repeatString('', 3);
+repeatString('abc', -2);
 
 /**
  * Remove the first occurrence of a substring from a string.
@@ -229,34 +223,22 @@ function formatTime(/* minutes, seconds */) {
   throw new Error('Not implemented');
 }
 
-/**
- * Returns a string in reverse order.
- *
- * @param {string} str - The input string.
- * @return {string} - The string in reverse order.
- *
- * @example:
- *   reverseString('abcdef') => 'fedcba'
- *   reverseString('12345') => '54321'
- */
-function reverseString(/* str */) {
-  throw new Error('Not implemented');
-}
+// Returns a string in reverse order.
 
-/**
- * Returns a string with characters in alphabetical order.
- *
- * @param {string} str - The input string.
- * @return {string} - The string in alphabetical order.
- *
- * @example:
- *   orderAlphabetically('webmaster') => 'abeemrstw'
- *   orderAlphabetically('textbook') => 'bekoottx'
- *   orderAlphabetically('abc123xyz') => '123abcxyz'
- */
-function orderAlphabetically(/* str */) {
-  throw new Error('Not implemented');
+function reverseString(str) {
+  return str.split('').reverse().join('');
 }
+reverseString('abcdef');
+reverseString('12345');
+
+// Returns a string with characters in alphabetical order.
+
+function orderAlphabetically(str) {
+  return str.split('').sort().join('');
+}
+orderAlphabetically('webmaster');
+orderAlphabetically('textbook');
+orderAlphabetically('abc123xyz');
 
 /**
  * Checks if a given string contains a specified substring.
