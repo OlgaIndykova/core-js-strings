@@ -403,7 +403,6 @@ function getStringFromTemplate(firstName, lastName) {
   const arr = ['Hello,'];
   arr[1] = firstName;
   arr[2] = `${lastName}!`;
-  // arr[2].push('!');
   return arr.join(' ');
 }
 getStringFromTemplate('John', 'Doe');
@@ -460,9 +459,7 @@ unbracketTag('<a>');
  *   'info@gmail.com' => ['info@gmail.com']
  */
 function extractEmails(str) {
-  return str.match('\n');
-  // .join(',\n');
-  // throw new Error('Not implemented');
+  return str.split(';');
 }
 extractEmails(
   'angus.young@gmail.com;brian.johnson@hotmail.com;bon.scott@yahoo.com'
@@ -485,9 +482,20 @@ extractEmails('info@gmail.com');
  *    => 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
  *
  */
-function encodeToRot13(/* str */) {
-  throw new Error('Not implemented');
+function encodeToRot13(str) {
+  const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ?!';
+  const rot13 = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm ?!';
+  let newStr = '';
+  for (let i = 0; i < str.length; i += 1) {
+    const index = alphabet.indexOf(str[i]);
+    newStr += rot13[index];
+  }
+  return newStr;
 }
+encodeToRot13('hello');
+encodeToRot13('Why did the chicken cross the road?');
+encodeToRot13('Gb trg gb gur bgure fvqr!');
+encodeToRot13('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz');
 
 /**
  * Returns playid card id.
